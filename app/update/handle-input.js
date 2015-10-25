@@ -1,8 +1,7 @@
-const gameObjects = require('../game-objects');
+const player = require('../player');
 const input = require('../input')();
 
 module.exports = (delta) => {
-    const player = gameObjects[0];
     const keysDown = input.getKeysDown();
 
     if (keysDown.indexOf('up') !== -1) {

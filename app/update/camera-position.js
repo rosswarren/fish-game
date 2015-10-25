@@ -1,11 +1,9 @@
 const camera = require('../camera');
-const gameObjects = require('../game-objects');
+const player = require('../player');
 const canvas = require('../canvas');
 const boundary = require('../boundary');
 
 module.exports = () => {
-    const player = gameObjects[0];
-
     camera.position.x = player.position.x - (canvas.width / 2);
     camera.position.y = player.position.y - (canvas.height / 2);
 
