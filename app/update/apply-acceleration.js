@@ -8,22 +8,22 @@ module.exports = (delta) => {
 
         if (gameObject.position.x > boundary.x) {
             gameObject.position.x = boundary.x;
-            gameObject.acceleration.x = -gameObject.acceleration.x;
+            gameObject.acceleration.x = -(gameObject.acceleration.x / 2);
         }
 
         if (gameObject.position.x < 0) {
             gameObject.position.x = 0;
-            gameObject.acceleration.x = -gameObject.acceleration.x;
+            gameObject.acceleration.x = -(gameObject.acceleration.x / 2);
         }
 
         if (gameObject.position.y > boundary.y) {
             gameObject.position.y = boundary.y;
-            gameObject.acceleration.y = -gameObject.acceleration.y;
+            gameObject.acceleration.y = -(gameObject.acceleration.y / 2);
         }
 
         if (gameObject.position.y < 0) {
             gameObject.position.y = 0;
-            gameObject.acceleration.y = -gameObject.acceleration.y;
+            gameObject.acceleration.y = -(gameObject.acceleration.y / 2);
         }
 
         gameObject.render.call(gameObject);

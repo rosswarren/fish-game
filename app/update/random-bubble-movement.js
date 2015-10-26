@@ -4,9 +4,7 @@ const gameObjects = require('../game-objects');
 const random = require('../random');
 
 module.exports = (delta) => {
-    const gameObjectsCopy = gameObjects.slice(1, gameObjects.length - 1);
-
-    gameObjectsCopy.forEach((gameObject) => {
+    gameObjects.slice(1, gameObjects.length - 1).forEach((gameObject) => {
         switch(random(4)) {
         case 1:
             gameObject.acceleration.y -= delta;

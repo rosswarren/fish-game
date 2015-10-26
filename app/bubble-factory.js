@@ -6,19 +6,17 @@ const GameObject = require('./game-object');
 const random = require('./random');
 
 class Bubble extends GameObject {
-    constructor(position, render) {
-        super(position, render);
+    constructor(position, radius, render) {
+        super(position, radius, render);
 
         this.color = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
     }
 }
 
 module.exports = (position) => {
-    return new Bubble(position, function() {
-        const radius = 20;
-
+    return new Bubble(position, 20, function() {
         context.beginPath();
-        context.arc(getDrawPosition(this.position).x, getDrawPosition(this.position).y, radius, 0, 2 * Math.PI, false);
+        context.arc(getDrawPosition(this.position).x, getDrawPosition(this.position).y, this.radius, 0, 2 * Math.PI, false);
         context.closePath();
         context.globalAlpha = 0.2;
         context.fillStyle = this.color;

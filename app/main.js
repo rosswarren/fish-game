@@ -13,6 +13,7 @@ gameLoop.addLoopFunction(require('./update/decay-acceleration'));
 gameLoop.addLoopFunction(require('./update/cull-bubbles'));
 gameLoop.addLoopFunction(require('./update/random-bubble-movement'));
 gameLoop.addLoopFunction(require('./update/create-new-bubbles'));
+gameLoop.addLoopFunction(require('./update/check-collisions'));
 gameLoop.addLoopFunction(require('./render/labels'));
 gameLoop.addLoopFunction(require('./render/render'));
 

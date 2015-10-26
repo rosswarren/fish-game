@@ -1,8 +1,9 @@
 'use strict';
 
 class GameObject {
-    constructor(position, render) {
+    constructor(position, radius, render) {
         this.position = position;
+        this.radius = radius;
         this.render = render;
         this.acceleration = {
             x: 0,

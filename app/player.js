@@ -6,23 +6,35 @@ const context = require('./context');
 const canvas = require('./canvas');
 const getDrawPosition = require('./draw-position');
 
+const background = new Image();
+background.src = '/puffed.gif';
+
+background.onload = () => {
+};
+
 class Player extends GameObject {
-    constructor(position, render) {
-        super(position, render);
+    constructor(position, radius, render) {
+        super(position, radius, render);
 
         this.color = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
     }
 }
 
+const degrees = (radians) => {
+    return radians * 180 / Math.PI;
+};
+
+const radians = (degrees) => {
+    return degrees * Math.PI / 180;
+};
+
 module.exports = new Player({
     x: canvas.width / 2,
     y: canvas.height / 2
-}, function() {
-    const radius = 70;
-
-    context.beginPath();
-    context.arc(getDrawPosition(this.position).x, getDrawPosition(this.position).y, radius, 0, 2 * Math.PI, false);
-    context.closePath();
-    context.fillStyle = this.color;
-    context.fill();
+}, 70, function() {
+    context.save();
+    context.translate(getDrawPosition(this.position).x, getDrawPosition(this.position).y);
+    context.rotate( - Math.atan2(this.acceleration.x, this.acceleration.y) - radians(90));
+    context.drawImage(background, -this.radius, -this.radius, this.radius * 2, this.radius * 2);
+    context.restore();
 });
